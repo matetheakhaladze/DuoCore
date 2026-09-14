@@ -1,0 +1,14 @@
+{
+  "name": "duocore-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DuoCore — Roblox game studio website with live Roblox stats",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}

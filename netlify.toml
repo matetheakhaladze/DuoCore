@@ -1,0 +1,17 @@
+# Netlify — static deploy of the public/ folder (no server; the page uses the public Roblox proxy).
+# In Netlify: Add new site → Import from Git (or drag the public/ folder onto the dashboard).
+# Then Domain management → Add domain → duocore.org.
+[build]
+  publish = "public"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

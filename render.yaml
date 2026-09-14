@@ -1,0 +1,10 @@
+# Render.com blueprint — deploys the Node version (server.js with the cached Roblox proxy).
+# In Render: New → Blueprint → pick this repo. Then Settings → Custom Domains → add duocore.org.
+services:
+  - type: web
+    name: duocore-site
+    runtime: node
+    plan: free            # change to "starter" if the free plan isn't offered
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeploy: true

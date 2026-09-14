@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DuoCore — Roblox Game Studio</title>
+  <meta name="description" content="DuoCore is an independent Roblox game studio building simulator and tycoon experiences played by millions.">
+  <meta name="theme-color" content="#07070a">
+  <meta property="og:title" content="DuoCore — Roblox Game Studio">
+  <meta property="og:description" content="We build games players come back to.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo-512.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#games">Skip to games</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#home" aria-label="DuoCore home">
+        <img class="brand__mark" src="assets/logo-mark.png" alt="" width="661" height="390">
+        <span class="brand__name" data-studio-name>DuoCore</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#games" data-nav="games">Games</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+        <a class="btn btn--discord btn--sm nav__discord" href="#" data-discord target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.27 5.33A16.4 16.4 0 0 0 15.2 4l-.2.4a15 15 0 0 1 3.7 1.9 13 13 0 0 0-13.4 0 15 15 0 0 1 3.7-1.9L8.8 4a16.4 16.4 0 0 0-4.07 1.33C2.1 9.2 1.4 12.98 1.75 16.7a16.5 16.5 0 0 0 5 2.53l1.06-1.45a10.7 10.7 0 0 1-1.68-.81l.4-.31a11.8 11.8 0 0 0 10.94 0l.4.31c-.54.32-1.1.6-1.68.81l1.06 1.45a16.5 16.5 0 0 0 5-2.53c.42-4.32-.7-8.06-2.98-11.37ZM8.68 14.4c-.98 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02 1.8.91 1.8 2.02c0 1.12-.8 2.02-1.8 2.02Zm6.64 0c-.98 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02 1.8.91 1.8 2.02c0 1.12-.8 2.02-1.8 2.02Z"/></svg>
+          Discord
+        </a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="collage" id="collage"></div>
+        <div class="hero__glow hero__glow--a"></div>
+        <div class="hero__glow hero__glow--b"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title reveal-load" style="--d:0ms" data-hero-title>We build games players come back to.</h1>
+          <p class="hero__text reveal-load" style="--d:90ms" data-hero-text></p>
+          <div class="hero__actions reveal-load" style="--d:180ms">
+            <a class="btn btn--primary" href="#games">Explore our games <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="#" data-discord target="_blank" rel="noopener">Join our Discord</a>
+          </div>
+        </div>
+
+        <div class="stats reveal-load" style="--d:280ms" id="heroStats">
+          <div class="stat">
+            <span class="stat__value" data-stat="playing" data-suffix="">0</span>
+            <span class="stat__label"><span class="live-dot live-dot--sm" aria-hidden="true"></span>Playing now</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" data-stat="visits" data-suffix="+">0</span>
+            <span class="stat__label">Total visits</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" data-stat="games" data-suffix="">0</span>
+            <span class="stat__label">Games shipped</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" data-stat="favorites" data-suffix="+">0</span>
+            <span class="stat__label">Favorites</span>
+          </div>
+          <div class="stats__status" id="statsStatus" aria-live="polite">Loading live stats…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ICON MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marquee"></div>
+    </div>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about">
+          <div class="about__copy reveal">
+            <span class="section__kicker">About us</span>
+            <h2 class="section__title" data-about-heading>Built by players, for players.</h2>
+            <div class="about__paragraphs" data-about-paragraphs></div>
+            <a class="btn btn--ghost btn--sm about__group" href="#" data-group-link target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.16 2 2 18.84 18.84 22 22 5.16 5.16 2Zm8.9 13.04-5.1-1.27 1.27-5.1 5.1 1.27-1.27 5.1Z"/></svg>
+              <span data-group-name>DuoCore Games</span> on Roblox
+              <span class="pill" data-group-members></span>
+            </a>
+          </div>
+          <div class="pillars" id="pillars"></div>
+        </div>
+
+        <div class="team">
+          <div class="section__head reveal">
+            <span class="section__kicker">The team</span>
+            <h2 class="section__title">Meet the people behind the games.</h2>
+          </div>
+          <div class="team__grid" id="team"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GAMES ================= -->
+    <section class="section section--games" id="games">
+      <div class="container">
+        <div class="section__head section__head--row reveal">
+          <div>
+            <span class="section__kicker">Our games</span>
+            <h2 class="section__title">Live on Roblox right now.</h2>
+            <p class="section__text">Stats update automatically — <span data-stat="games-count">0</span> games, <span data-stat="playing-text">0</span> players online.</p>
+          </div>
+          <div class="segmented" id="sort" role="group" aria-label="Sort games">
+            <button type="button" data-sort="playing" class="is-active">Most playing</button>
+            <button type="button" data-sort="visits">Most visits</button>
+            <button type="button" data-sort="newest">Newest</button>
+          </div>
+        </div>
+        <div class="games__grid" id="gamesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <div class="contact__glow" aria-hidden="true"></div>
+          <img class="contact__logo" src="assets/logo-mark.png" alt="" width="661" height="390">
+          <span class="section__kicker">Contact</span>
+          <h2 class="section__title">Let's build something together.</h2>
+          <p class="section__text">Partnerships, collaborations, or just want to say hi — the fastest way to reach us is Discord.</p>
+          <div class="contact__actions">
+            <a class="btn btn--discord" href="#" data-discord target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.27 5.33A16.4 16.4 0 0 0 15.2 4l-.2.4a15 15 0 0 1 3.7 1.9 13 13 0 0 0-13.4 0 15 15 0 0 1 3.7-1.9L8.8 4a16.4 16.4 0 0 0-4.07 1.33C2.1 9.2 1.4 12.98 1.75 16.7a16.5 16.5 0 0 0 5 2.53l1.06-1.45a10.7 10.7 0 0 1-1.68-.81l.4-.31a11.8 11.8 0 0 0 10.94 0l.4.31c-.54.32-1.1.6-1.68.81l1.06 1.45a16.5 16.5 0 0 0 5-2.53c.42-4.32-.7-8.06-2.98-11.37ZM8.68 14.4c-.98 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02 1.8.91 1.8 2.02c0 1.12-.8 2.02-1.8 2.02Zm6.64 0c-.98 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02 1.8.91 1.8 2.02c0 1.12-.8 2.02-1.8 2.02Z"/></svg>
+              Join the Discord server
+            </a>
+            <a class="btn btn--ghost" href="#" data-email hidden>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 3.2V17h16V8.2l-8 5-8-5ZM4 7l8 5 8-5H4Z"/></svg>
+              <span data-email-text>Email us</span>
+            </a>
+            <a class="btn btn--ghost" href="#" data-group-link target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.16 2 2 18.84 18.84 22 22 5.16 5.16 2Zm8.9 13.04-5.1-1.27 1.27-5.1 5.1 1.27-1.27 5.1Z"/></svg>
+              Roblox group
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="#home" aria-label="DuoCore home">
+          <img class="brand__mark" src="assets/logo-mark.png" alt="" width="661" height="390">
+          <span class="brand__name" data-studio-name>DuoCore</span>
+        </a>
+        <p class="footer__tag" data-hero-text></p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#games">Games</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer__social">
+        <a href="#" data-discord target="_blank" rel="noopener" aria-label="Discord">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.27 5.33A16.4 16.4 0 0 0 15.2 4l-.2.4a15 15 0 0 1 3.7 1.9 13 13 0 0 0-13.4 0 15 15 0 0 1 3.7-1.9L8.8 4a16.4 16.4 0 0 0-4.07 1.33C2.1 9.2 1.4 12.98 1.75 16.7a16.5 16.5 0 0 0 5 2.53l1.06-1.45a10.7 10.7 0 0 1-1.68-.81l.4-.31a11.8 11.8 0 0 0 10.94 0l.4.31c-.54.32-1.1.6-1.68.81l1.06 1.45a16.5 16.5 0 0 0 5-2.53c.42-4.32-.7-8.06-2.98-11.37ZM8.68 14.4c-.98 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02 1.8.91 1.8 2.02c0 1.12-.8 2.02-1.8 2.02Zm6.64 0c-.98 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02 1.8.91 1.8 2.02c0 1.12-.8 2.02-1.8 2.02Z"/></svg>
+        </a>
+        <a href="#" data-group-link target="_blank" rel="noopener" aria-label="Roblox group">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.16 2 2 18.84 18.84 22 22 5.16 5.16 2Zm8.9 13.04-5.1-1.27 1.27-5.1 5.1 1.27-1.27 5.1Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span data-copyright>© 2026 DuoCore. All Rights Reserved.</span>
+      <a href="#" data-discord target="_blank" rel="noopener">discord.gg/Mq3B4D9yR</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="data/snapshot.js"></script>
+  <script src="js/roblox.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
