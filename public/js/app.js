@@ -8,7 +8,9 @@
   const R = window.DuoCoreRoblox;
   const $ = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Animations are always enabled, regardless of the visitor's OS/browser
+  // "reduce motion" preference — this is a deliberate site choice.
+  const reduceMotion = false;
 
   /* ---------- formatting ---------- */
   function fmt(n) {
@@ -130,17 +132,7 @@
     $$("[data-stat]").forEach((el) => {
       const key = el.dataset.stat;
       if (key in map) setNumber(el, map[key]);
-      else if (key === "playing-text") el.textContent = full(playing);
-      else if (key === "games-count") el.textContent = games.length;
     });
-    const status = $("#statsStatus");
-    if (status) {
-      status.classList.toggle("is-live", !!data.live);
-      status.classList.remove("is-error");
-      status.textContent = data.live
-        ? `Live from Roblox · updated ${timeAgo(data.fetchedAt)}`
-        : data.cached ? `Last live update ${timeAgo(data.fetchedAt)} · refreshing…` : `Snapshot · refreshing live stats…`;
-    }
   }
 
   function gameCard(g, i, topId) {
@@ -155,7 +147,6 @@
           ${g.thumbnail ? `<img src="${esc(g.thumbnail)}" alt="" loading="lazy" decoding="async">` : ""}
           <div class="game__badges">
             <span class="badge badge--live"><span class="live-dot" aria-hidden="true"></span><span data-card-playing>${full(g.playing)}</span> playing</span>
-            ${g.universeId === topId ? `<span class="badge badge--top">Top game</span>` : ""}
           </div>
         </a>
         <div class="game__body">
@@ -202,9 +193,6 @@
         const v = $("[data-card-visits]", card); if (v) v.textContent = fmt(g.visits);
         const l = $("[data-card-likes]", card); const r = likeRatio(g); if (l && r != null) l.textContent = r + "%";
         const f = $("[data-card-favs]", card); if (f) f.textContent = fmt(g.favorites);
-        const badge = $(".badge--top", card);
-        if (g.universeId === topId && !badge) $(".game__badges", card).insertAdjacentHTML("beforeend", `<span class="badge badge--top">Top game</span>`);
-        else if (g.universeId !== topId && badge) badge.remove();
         grid.appendChild(card);
       });
       return;
