@@ -23,11 +23,11 @@ window.DUOCORE_CONFIG = {
   about: {
     heading: "Built by players, for players.",
     paragraphs: [
-      "DuoCore is a Roblox game development studio focused on fast, satisfying progression games — from incremental simulators to build-and-earn tycoons.",
+      "DuoCore is a Roblox game development studio focused on fast, satisfying progression games, from incremental simulators to build-and-earn tycoons.",
       "We design, build, launch and operate every title in-house, then keep it growing with regular updates driven by what our players actually do.",
     ],
     pillars: [
-      { icon: "gamepad", title: "Original games", text: "We ship our own IP — +1 evolution games, build-and-rob tycoons and more — and keep every title updated." },
+      { icon: "gamepad", title: "Original games", text: "We ship our own IP, from +1 evolution games to build-and-rob tycoons, and keep every title updated." },
       { icon: "chart", title: "Data-driven updates", text: "Live player counts, retention and community feedback decide what we build next, not guesswork." },
       { icon: "users", title: "Community first", text: "Our Discord is where players get sneak peeks, codes and a direct line to the team." },
     ],

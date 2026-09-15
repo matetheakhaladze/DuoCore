@@ -87,7 +87,7 @@
           <div><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p></div>
         </div>`).join("");
     }
-    document.title = `${s.name || "DuoCore"} — Roblox Game Studio`;
+    document.title = `${s.name || "DuoCore"} | Roblox Game Studio`;
   }
 
   /* ---------- counters ---------- */
@@ -179,7 +179,7 @@
     const games = sortGames(data.games || []);
     const top = games.slice().sort((a, b) => (b.playing || 0) - (a.playing || 0))[0];
     const topId = top && top.universeId;
-    if (!games.length) { grid.innerHTML = `<div class="games__empty">No games yet — add Roblox game links in <code>js/config.js</code>.</div>`; return; }
+    if (!games.length) { grid.innerHTML = `<div class="games__empty">No games yet. Add Roblox game links in <code>js/config.js</code>.</div>`; return; }
 
     const structure = games.map((g) => [g.placeId, g.name, g.thumbnail, g.description, g.genre, g.creator && g.creator.name, likeRatio(g) != null]);
     const rebuild = force || changed("games", structure) || grid.children.length !== games.length;
@@ -367,10 +367,10 @@
       const status = $("#statsStatus");
       if (status) {
         if ((cfg.api || {}).mode === "snapshot") {
-          status.textContent = `Design preview · numbers are a snapshot from ${new Date(state.data.fetchedAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })} — the live site refreshes them automatically`;
+          status.textContent = `Design preview: numbers are a snapshot from ${new Date(state.data.fetchedAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}. The live site refreshes them automatically.`;
         } else {
           status.classList.add("is-error");
-          status.textContent = "Couldn't reach the Roblox API — showing last known numbers.";
+          status.textContent = "Couldn't reach the Roblox API. Showing last known numbers.";
         }
       }
       return; // nothing to refresh
