@@ -133,7 +133,6 @@ p { margin: 0; }
 }
 .collage.is-ready { opacity: 1; }
 .collage img { aspect-ratio: 16 / 9; width: 100%; height: auto; object-fit: cover; border-radius: 14px; opacity: 0.9; }
-.collage img:nth-child(odd) { transform: translateY(24px); }
 @keyframes drift { from { transform: translate(-50%, -50%) rotate(-8deg) scale(1.02) translate3d(0, 0, 0); } to { transform: translate(-50%, -50%) rotate(-8deg) scale(1.1) translate3d(-60px, -40px, 0); } }
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
@@ -154,7 +153,7 @@ p { margin: 0; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 
 .stats {
-  position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
   padding: 22px 26px 18px; border-radius: var(--radius);
   background: rgba(12, 12, 17, 0.55); border: 1px solid var(--border); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   box-shadow: var(--shadow);
@@ -163,9 +162,6 @@ p { margin: 0; }
 .stat:first-child { border-left: 0; padding-left: 0; }
 .stat__value { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 3.2vw, 2.5rem); letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
 .stat__label { display: inline-flex; align-items: center; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.stats__status { grid-column: 1 / -1; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--muted-2); display: flex; align-items: center; gap: 8px; }
-.stats__status.is-live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--live); box-shadow: 0 0 10px var(--live); }
-.stats__status.is-error { color: #f2b8b5; }
 
 @media (max-width: 860px) {
   .hero { padding-top: calc(var(--nav-h) + 40px); padding-bottom: 56px; }
@@ -197,7 +193,6 @@ p { margin: 0; }
 /* ---------- about ---------- */
 .about { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: start; }
 .about__paragraphs { display: grid; gap: 14px; margin-top: 18px; color: var(--muted); font-size: 1.05rem; }
-.about__group { margin-top: 26px; }
 .pillars { display: grid; gap: 14px; }
 .pillar { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 22px 24px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); transition: transform 0.5s var(--ease), border-color 0.4s, background 0.4s; overflow: hidden; }
 .pillar::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; background: radial-gradient(400px 200px at 0% 0%, rgba(91, 140, 255, 0.18), transparent 60%); opacity: 0; transition: opacity 0.5s; }
@@ -244,7 +239,6 @@ p { margin: 0; }
 .game__badges { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; z-index: 1; }
 .badge { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 999px; background: rgba(7, 7, 10, 0.72); border: 1px solid var(--border-strong); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .badge--live .live-dot { width: 8px; height: 8px; }
-.badge--top { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; font-size: 11.5px; }
 .game__body { display: flex; flex-direction: column; gap: 10px; padding: 18px 20px 20px; flex: 1; }
 .game__title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
 .game__by { display: inline-flex; align-items: center; gap: 6px; font-size: 0.88rem; color: var(--muted); }
@@ -295,10 +289,3 @@ p { margin: 0; }
 .reveal.is-in { opacity: 1; transform: none; filter: blur(0); }
 .tick { animation: tick 0.6s var(--ease); }
 @keyframes tick { 0% { color: var(--live); } 100% { color: inherit; } }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-  .reveal, .reveal-load { opacity: 1; transform: none; filter: none; }
-  .collage { animation: none; }
-}
