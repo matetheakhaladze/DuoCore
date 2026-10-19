@@ -226,6 +226,30 @@
     observeReveals(grid);
   }
 
+  function renderPartners(data) {
+    const grid = $("#partners");
+    if (!grid) return;
+    const partners = cfg.partners || [];
+    if (!changed("partners", [partners, data.team])) return;
+    const wasVisible = grid.children.length > 0 && grid.getBoundingClientRect().top < window.innerHeight;
+    grid.innerHTML = partners.map((m, i) => {
+      const id = R.parseUserId(m.profile);
+      const u = (data.team || []).find((t) => t.userId === id) || {};
+      const name = u.displayName || u.name || "Roblox user";
+      return `
+        <a class="partner reveal" style="--d:${i * 90}ms" href="${id ? userUrl(id) : esc(m.profile)}" target="_blank" rel="noopener">
+          <div class="partner__avatar"><img src="${esc(u.headshot || "")}" alt="${esc(name)}'s Roblox avatar" loading="lazy" decoding="async"></div>
+          <div class="partner__info">
+            <div class="partner__name">${esc(name)}${u.hasVerifiedBadge ? ICONS.verified : ""}</div>
+            ${u.name ? `<div class="partner__handle">@${esc(u.name)}</div>` : ""}
+          </div>
+          <span class="partner__arrow" aria-hidden="true">${ICONS.external}</span>
+        </a>`;
+    }).join("");
+    if (wasVisible) $$(".reveal", grid).forEach((el) => el.classList.add("is-in"));
+    observeReveals(grid);
+  }
+
   function renderGroup(data) {
     const id = R.parseGroupId(cfg.studio && cfg.studio.robloxGroup);
     const g = id && data.groups ? data.groups[id] : null;
@@ -263,6 +287,7 @@
     renderStats(data);
     renderGames(data);
     renderTeam(data);
+    renderPartners(data);
     renderCollage(data);
     renderMarquee(data);
     renderGroup(data);

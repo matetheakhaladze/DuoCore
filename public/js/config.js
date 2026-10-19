@@ -42,6 +42,8 @@ window.DUOCORE_CONFIG = {
     "https://www.roblox.com/games/136909593741656/1-Soccer-Player-Evolution",
     "https://www.roblox.com/games/73186227660997/Build-a-Bank-and-Rob",
     "https://www.roblox.com/games/101835879420322/Build-a-Go-Kart-Track",
+    "https://www.roblox.com/games/99595206014058/Jump-To-Steal-Phonks",
+    "https://www.roblox.com/games/76413295757565/1-Dance-Battle-Evolution",
   ],
 
   // Default ordering of the games grid: "playing" | "visits" | "newest" | "config"
@@ -53,6 +55,13 @@ window.DUOCORE_CONFIG = {
     { profile: "https://www.roblox.com/users/2783542309/profile", role: "CEO" },
     { profile: "https://www.roblox.com/users/3527246864/profile", role: "Senior Project Manager" },
     { profile: "https://www.roblox.com/users/746363517/profile", role: "Lead Producer" },
+  ],
+
+  // Partners: profile link + optional label. Avatar, display name and @username are fetched automatically.
+  partners: [
+    { profile: "https://www.roblox.com/users/1274298561/profile", role: "Partner" },
+    { profile: "https://www.roblox.com/users/1586051184/profile", role: "Partner" },
+    { profile: "https://www.roblox.com/users/953023612/profile", role: "Partner" },
   ],
 
   // How often live numbers (players online, visits, favorites) refresh, in seconds.

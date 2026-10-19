@@ -174,7 +174,7 @@
 
   async function loadAll() {
     const placeIds = (cfg.games || []).map(parsePlaceId).filter(Boolean);
-    const userIds = (cfg.team || []).map((m) => parseUserId(m.profile)).filter(Boolean);
+    const userIds = [...new Set([...(cfg.team || []), ...(cfg.partners || [])].map((m) => parseUserId(m.profile)).filter(Boolean))];
     const mainGroupId = parseGroupId(cfg.studio && cfg.studio.robloxGroup);
 
     const resolved = await resolveUniverses(placeIds);
